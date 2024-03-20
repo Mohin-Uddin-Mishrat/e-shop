@@ -126,7 +126,6 @@ REST_FRAMEWORK = {
     ],
 }
 
-
 STATIC_URL = 'static/'
 
 ALLOWED_HOSTS = ["*"]
