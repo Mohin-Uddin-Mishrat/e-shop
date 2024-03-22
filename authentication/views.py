@@ -19,13 +19,13 @@ class registerView(APIView):
             user =serializer.save()
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            confirm_link = f"http://127.0.0.1:8000/auth/activate/{uid}/{token}"
+            confirm_link = f"http://127.0.0.1:8000/auth/activate/{uid}/{token}/"
             email_body = render_to_string('email.html' , {"confirm_link" : confirm_link})
             email_subject = 'Confirm your email'
             email = EmailMultiAlternatives(email_subject  , '' , to = [user.email])
             email.attach_alternative(email_body , 'text/html')
             email.send()
-            return Response('check your mail for confirmation')
+            return Response({'mail':['check your mail for confirmation']})
         return Response(serializer.errors)
 
 def activate(request, uid64, token) :
@@ -41,7 +41,7 @@ def activate(request, uid64, token) :
         user.save()
         return redirect('login')
     else:
-        redirect('register')
+        return redirect('register')
 
 class loginView(APIView) :
     def post(self, request) :

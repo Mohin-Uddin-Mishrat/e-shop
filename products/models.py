@@ -25,19 +25,12 @@ class ProductsModel(models.Model) :
 
  
 
-stars = [
-    ('⭐', '⭐'),
-    ('⭐⭐', '⭐⭐'),
-    ('⭐⭐⭐', '⭐⭐⭐'),
-    ('⭐⭐⭐⭐', '⭐⭐⭐⭐'),
-    ('⭐⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'),
-]
+
 
 class reviewModel(models.Model) :
     product = models.ForeignKey(ProductsModel , on_delete = models.CASCADE)
     user = models.ForeignKey(User , on_delete = models.CASCADE)
     comment = models.TextField()
-    rating = models.CharField(choices = stars, max_length = 10)
 
 class wishlistModel(models.Model) :
     user = models.ForeignKey(User , on_delete = models.CASCADE)
