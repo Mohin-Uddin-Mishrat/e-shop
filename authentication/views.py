@@ -19,7 +19,7 @@ class registerView(APIView):
             user =serializer.save()
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            confirm_link = f"http://127.0.0.1:8000/auth/activate/{uid}/{token}/"
+            confirm_link = f"https://e-shop-tv7f.onrender.com/auth/activate/{uid}/{token}/"
             email_body = render_to_string('email.html' , {"confirm_link" : confirm_link})
             email_subject = 'Confirm your email'
             email = EmailMultiAlternatives(email_subject  , '' , to = [user.email])
