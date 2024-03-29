@@ -17,7 +17,7 @@ SECRET_KEY = 'django-insecure-iyb(=ol$qx0bz42h=g0i2j@3w14cp_kyc8pt6!ll6h6@+4ln)*
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-CSRF_TRUSTED_ORIGINS = ['https://library-system-kecv.onrender.com','https://*.127.0.0.1']
+CSRF_TRUSTED_ORIGINS = ['https://e-shop-tv7f.onrender.com/','https://*.127.0.0.1/']
 
 ALLOWED_HOSTS = ['*']
 
